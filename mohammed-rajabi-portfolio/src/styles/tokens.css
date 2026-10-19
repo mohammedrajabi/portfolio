@@ -1,0 +1,46 @@
+@import "tailwindcss";
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+@theme {
+  --color-cream: #f6f4ed;
+  --color-blue: #a3c4f3;
+  --color-yellow: #ffc857;
+  --color-coral: #ff857a;
+  --color-charcoal: #202020;
+  --font-heading: "Bricolage Grotesque Variable", sans-serif;
+  --font-body: "DM Sans Variable", sans-serif;
+  --color-page: var(--page);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--color-yellow);
+  --spacing: 0.25rem;
+  --breakpoint-sm: 40rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 64rem;
+  --breakpoint-xl: 80rem;
+  --shadow-brutal: 5px 5px 0 var(--shadow-ink);
+  --shadow-brutal-lg: 8px 8px 0 var(--shadow-ink);
+  --radius-brutal: 0;
+  --ease-playful: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+:root {
+  --page: #f6f4ed;
+  --surface: #fffefa;
+  --ink: #202020;
+  --muted: #5b5a54;
+  --line: #202020;
+  --shadow-ink: #202020;
+  --border-width: 2px;
+  --duration-fast: 140ms;
+  --duration-normal: 240ms;
+  --section-gap: clamp(2.5rem, 5vw, 4rem);
+}
+:root[data-theme="dark"] {
+  --page: #202020;
+  --surface: #2c2c2c;
+  --ink: #f6f4ed;
+  --muted: #c6c4bc;
+  --line: #f6f4ed;
+  --shadow-ink: #090909;
+}
