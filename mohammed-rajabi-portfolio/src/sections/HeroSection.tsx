@@ -4,11 +4,12 @@ import { SectionContainer } from "../components/ui/SectionContainer";
 import { BrutalistButton } from "../components/ui/BrutalistButton";
 import { DeveloperCards } from "../components/hero/DeveloperCards";
 import { profile } from "../content/profile";
-import { contacts } from "../content/contact";
 import { homeContent, visibleSections } from "../content/home";
 
 export function HeroSection() {
-  const email = contacts.find((contact) => contact.label === "Email");
+  const contactAvailable = visibleSections.some(
+    (section) => section.id === "contact",
+  );
   const projectsAvailable = visibleSections.some(
     (section) => section.id === "projects",
   );
@@ -49,10 +50,10 @@ export function HeroSection() {
               Explore Projects <ArrowUpRight size={18} aria-hidden="true" />
             </BrutalistButton>
           )}
-          {email && (
-            <a className="brutalist-button button-secondary" href={email.href}>
+          {contactAvailable && (
+            <Link className="brutalist-button button-secondary" to="/#contact">
               Contact Me <ArrowUpRight size={18} aria-hidden="true" />
-            </a>
+            </Link>
           )}
           {__RESUME_AVAILABLE__ && (
             <a

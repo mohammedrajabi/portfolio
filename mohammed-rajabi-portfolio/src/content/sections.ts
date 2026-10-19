@@ -1,4 +1,8 @@
 export const sectionContent = {
+  contact: {
+    title: "Let's Connect!",
+    description: "An idea, a question, or just a hello. My inbox is open.",
+  },
   skills: {
     title: "Skills & Technologies",
     description: "The tools I build, explore, and solve with.",

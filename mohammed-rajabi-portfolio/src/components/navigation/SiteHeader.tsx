@@ -127,6 +127,7 @@ export function SiteHeader() {
         className="mobile-nav"
         aria-label="Mobile navigation"
         hidden={!isOpen}
+        inert={!isOpen}
       >
         {links}
       </nav>

@@ -4,6 +4,7 @@ import { SkillsSection } from "../sections/SkillsSection";
 import { ProjectsSection } from "../sections/ProjectsSection";
 import { JourneySections } from "../sections/JourneySections";
 import { CertificationsSection } from "../sections/CertificationsSection";
+import { ContactSection } from "../sections/ContactSection";
 import { profile } from "../content/profile";
 import { usePageMetadata } from "../hooks/usePageMetadata";
 
@@ -20,7 +21,7 @@ export default function HomePage() {
       <ProjectsSection />
       <JourneySections />
       <CertificationsSection />
-      {/* Contact is reserved for Phase 4. */}
+      <ContactSection />
     </>
   );
 }

@@ -1,0 +1,201 @@
+/* Phase 4 interactions and Contact; existing section layouts are preserved. */
+html {
+  scroll-padding-bottom: 90px;
+}
+.contact-band {
+  border-block: 2px solid var(--line);
+  background-image: radial-gradient(var(--muted) 0.6px, transparent 0.6px);
+  background-size: 18px 18px;
+}
+.contact-grid {
+  display: grid;
+  gap: 25px;
+}
+.contact-article,
+.contact-card {
+  height: 100%;
+  min-width: 0;
+}
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 2px solid var(--color-charcoal);
+  color: var(--color-charcoal);
+  padding: 28px 24px;
+  transition:
+    transform var(--duration-normal) var(--ease-playful),
+    box-shadow var(--duration-normal) var(--ease-playful);
+}
+.contact-yellow {
+  background: var(--color-yellow);
+}
+.contact-blue {
+  background: var(--color-blue);
+}
+.contact-coral {
+  background: var(--color-coral);
+}
+.contact-icon {
+  display: grid;
+  place-items: center;
+  width: 62px;
+  height: 62px;
+  border: 2px solid var(--color-charcoal);
+  background: var(--color-cream);
+  box-shadow: 3px 3px 0 var(--shadow-ink);
+  margin-bottom: 27px;
+}
+.contact-card h3 {
+  font-size: 2rem;
+  letter-spacing: -0.8px;
+}
+.contact-description {
+  font-size: 0.92rem;
+  line-height: 1.8;
+  margin-top: 15px;
+  margin-bottom: 23px;
+  max-width: 360px;
+}
+.contact-email-address {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 44px;
+  max-width: 100%;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  overflow-wrap: anywhere;
+  margin-bottom: 18px;
+}
+.contact-email-address svg {
+  flex: none;
+}
+.contact-card .brutalist-button {
+  background: var(--color-cream);
+  color: var(--color-charcoal);
+  border-color: var(--color-charcoal);
+  text-align: left;
+  font-size: 0.78rem;
+}
+.contact-card :is(a, button, input):focus-visible {
+  outline: 3px solid var(--color-charcoal);
+  outline-offset: 5px;
+}
+.contact-profile-link {
+  margin-top: auto;
+}
+.copy-email-control {
+  width: 100%;
+  margin-top: auto;
+}
+.copy-feedback {
+  margin-top: 16px;
+  font-size: 0.72rem;
+  line-height: 1.7;
+  min-height: 45px;
+  width: 100%;
+}
+.manual-copy-input {
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  border: 2px solid var(--color-charcoal);
+  background: var(--color-cream);
+  color: var(--color-charcoal);
+  font: inherit;
+  font-size: 0.78rem;
+  border-radius: 0;
+  padding: 9px;
+  margin-top: 12px;
+}
+.manual-copy-input::selection {
+  background: var(--color-blue);
+  color: var(--color-charcoal);
+}
+.back-to-top-wrap {
+  position: fixed;
+  right: max(16px, env(safe-area-inset-right));
+  bottom: max(20px, env(safe-area-inset-bottom));
+  z-index: 20;
+}
+.brutalist-button.back-to-top {
+  width: 48px;
+  min-height: 48px;
+  padding: 10px;
+}
+.site-footer {
+  padding-bottom: max(90px, env(safe-area-inset-bottom));
+}
+.mobile-nav {
+  opacity: 0;
+  transform: translateY(-6px);
+  transition:
+    opacity var(--duration-fast) ease,
+    transform var(--duration-fast) var(--ease-playful),
+    display var(--duration-fast) allow-discrete;
+}
+.mobile-nav:not([hidden]) {
+  opacity: 1;
+  transform: translateY(0);
+}
+@starting-style {
+  .mobile-nav:not([hidden]) {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+@media (min-width: 40rem) {
+  .contact-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .contact-grid > .card-entrance:first-child {
+    grid-column: 1/-1;
+  }
+  .contact-card {
+    padding: 32px;
+  }
+}
+@media (min-width: 64rem) {
+  .contact-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .contact-grid > .card-entrance:first-child {
+    grid-column: auto;
+  }
+  .contact-card {
+    padding: 30px 25px;
+  }
+  .contact-description {
+    font-size: 0.88rem;
+  }
+  .contact-section {
+    padding-bottom: 100px;
+  }
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 8px 9px 0 var(--shadow-ink);
+  }
+  .project-showcase:focus-within .project-media {
+    box-shadow: 7px 7px 0 var(--shadow-ink);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mobile-nav,
+  .mobile-nav:not([hidden]) {
+    transform: none;
+  }
+  .contact-card:hover {
+    transform: none;
+  }
+}
+/* Keep keyboard focus on the copy control while a permission/write is pending. */
+.contact-card .contact-copy[aria-disabled="true"] {
+  cursor: progress;
+  transform: none;
+  box-shadow: 4px 4px 0 var(--shadow-ink);
+}

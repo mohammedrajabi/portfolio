@@ -62,7 +62,7 @@ export const homepageSections: HomepageSection[] = [
   {
     id: "contact",
     label: "Contact",
-    implemented: false,
+    implemented: true,
     hasContent: hasContent(contacts),
     accent: "blue",
   },

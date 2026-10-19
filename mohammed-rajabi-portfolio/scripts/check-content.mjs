@@ -8,7 +8,7 @@ try {
   const { validateContentRendering } = await server.ssrLoadModule(
     "/tests/content-rendering.tsx",
   );
-  validateContentRendering();
+  await validateContentRendering();
 } finally {
   await server.close();
 }

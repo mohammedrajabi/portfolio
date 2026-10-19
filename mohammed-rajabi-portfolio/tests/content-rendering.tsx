@@ -7,6 +7,14 @@ import { education } from "../src/content/education";
 import { projects } from "../src/content/projects";
 import { experience } from "../src/content/experience";
 import { certifications } from "../src/content/certifications";
+import { contacts } from "../src/content/contact";
+import { profile } from "../src/content/profile";
+import { resume } from "../src/content/resume";
+import { ContactCard } from "../src/components/contact/ContactCard";
+import { CopyFeedback } from "../src/components/contact/CopyFeedback";
+import { HeroSection } from "../src/sections/HeroSection";
+import { BackToTop } from "../src/components/navigation/BackToTop";
+import { copyText } from "../src/utils/clipboard";
 import { visibleSections } from "../src/content/home";
 import { SkillCategoryCard } from "../src/components/skills/SkillCategoryCard";
 import { EducationCard } from "../src/components/journey/EducationCard";
@@ -37,7 +45,77 @@ const fixture: Project = {
 const wrap = (node: ReactNode) =>
   renderToStaticMarkup(<MemoryRouter>{node}</MemoryRouter>);
 
-export function validateContentRendering() {
+export async function validateContentRendering() {
+  const email = contacts.find((contact) => contact.kind === "email")!;
+  assert.deepEqual(
+    contacts.map((contact) => contact.href),
+    [
+      "mailto:mohammedrajabi.tech@gmail.com",
+      "https://github.com/mohammedrajabi",
+      "https://www.linkedin.com/in/mohammed-abbas-4b095b391/",
+    ],
+  );
+  assert.deepEqual(
+    contacts.map((contact) => contact.accent),
+    ["yellow", "blue", "coral"],
+  );
+  assert.equal(profile.resume, resume);
+  assert.equal(resume.path, "/resume/Mohammed_Rajabi_CV.pdf");
+  const contactMarkup = contacts
+    .map((contact) => renderToStaticMarkup(<ContactCard contact={contact} />))
+    .join("");
+  assert.equal(
+    (contactMarkup.match(/rel="noopener noreferrer"/g) ?? []).length,
+    2,
+  );
+  assert.match(contactMarkup, /Copy email/);
+  assert.match(contactMarkup, /role="status"/);
+  assert.doesNotMatch(
+    contactMarkup,
+    /Copied!|Email address copied to clipboard/,
+  );
+  const failureMarkup = renderToStaticMarkup(
+    <CopyFeedback status="error" email={email.value} id="test-feedback" />,
+  );
+  assert.match(failureMarkup, /Copy unavailable/);
+  assert.match(failureMarkup, /readonly=""/i);
+  assert.match(failureMarkup, /aria-describedby="test-feedback"/);
+  assert.doesNotMatch(failureMarkup, /Email address copied to clipboard/);
+  assert.match(wrap(<HeroSection />), /href="\/#contact"/);
+  assert.doesNotMatch(wrap(<BackToTop />), /aria-label="Back to top"/);
+  await assert.rejects(copyText(email.value), /Clipboard unavailable/);
+  await assert.rejects(
+    copyText(email.value, {
+      writeText: async () => {
+        throw new Error("Permission denied");
+      },
+    }),
+    /Permission denied/,
+  );
+  let resolveWrite!: () => void;
+  let copied = false;
+  let requestedText = "";
+  const pendingWrite = new Promise<void>((resolve) => {
+    resolveWrite = resolve;
+  });
+  const copying = copyText(email.value, {
+    writeText: (text) => {
+      requestedText = text;
+      return pendingWrite;
+    },
+  }).then(() => {
+    copied = true;
+  });
+  await Promise.resolve();
+  assert.equal(requestedText, email.value);
+  assert.equal(
+    copied,
+    false,
+    "Pending clipboard writes must not report success",
+  );
+  resolveWrite();
+  await copying;
+  assert.equal(copied, true);
   const skillMarkup = skills
     .map((category, index) =>
       renderToStaticMarkup(
@@ -114,6 +192,7 @@ export function validateContentRendering() {
       ...(experience.length ? ["experience"] : []),
       "education",
       ...(certifications.length ? ["certifications"] : []),
+      "contact",
     ],
   );
   const minimal = wrap(<ProjectDetails project={fixture} />);

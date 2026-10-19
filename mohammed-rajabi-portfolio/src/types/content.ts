@@ -21,9 +21,12 @@ export interface DeveloperCardContent {
   note: string;
 }
 export interface Contact {
+  kind: "email" | "github" | "linkedin";
   label: string;
   value: string;
   href: string;
+  description: string;
+  accent: "yellow" | "blue" | "coral";
 }
 export interface Education {
   id: string;

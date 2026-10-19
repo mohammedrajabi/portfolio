@@ -5,6 +5,7 @@ import "@fontsource-variable/dm-sans";
 import "./styles/tokens.css";
 import "./styles/global.css";
 import "./styles/sections.css";
+import "./styles/interactions.css";
 import App from "./App";
 import { ThemeProvider } from "./components/theme/ThemeProvider";
 createRoot(document.getElementById("root")!).render(

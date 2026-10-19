@@ -1,4 +1,4 @@
-import { GraduationCap, Code2, ArrowUpRight } from "lucide-react";
+import { GraduationCap, Code2, BookOpen } from "lucide-react";
 import type { Education } from "../../types/content";
 import { BrutalistCard } from "../ui/BrutalistCard";
 
@@ -34,7 +34,7 @@ export function EducationCard({
         ) : (
           <span>Program in progress</span>
         )}
-        <ArrowUpRight size={23} aria-hidden="true" />
+        <BookOpen size={23} aria-hidden="true" />
       </div>
     </BrutalistCard>
   );
