@@ -12,7 +12,7 @@ export default function App() {
         <Suspense
           fallback={
             <p className="loading" role="status">
-              Loading the foundation…
+              Loading portfolio…
             </p>
           }
         >

@@ -1,1 +1,1 @@
-Homepage section implementations begin in Phases 2 and 3. Keep portfolio content in src/content.
+Phase 2 implements HeroSection and AboutSection. Add later sections in the order defined by src/content/home.ts, preserving matching IDs and keyboard-focusable section targets. Gate empty collections and enable navigation only after the section is implemented. Keep personal data in src/content.

@@ -3,7 +3,21 @@ export interface Profile {
   headline: string;
   title: string;
   about: string;
+  introduction: string;
   resume: { path: string; filename: string };
+}
+export interface HomepageSection {
+  id: string;
+  label: string;
+  implemented: boolean;
+  hasContent: boolean;
+  accent: "blue" | "yellow" | "coral";
+}
+export interface DeveloperCardContent {
+  id: "development" | "security" | "learning";
+  title: string;
+  description: string;
+  note: string;
 }
 export interface Contact {
   label: string;

@@ -19,7 +19,7 @@ export default function ProjectPage() {
           "Projects will appear when verified content is added. This address does not match a published project."}
       </p>
       <Link className="brutalist-button button-primary" to="/">
-        Back to the foundation
+        Back to home
       </Link>
     </SectionContainer>
   );

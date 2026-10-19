@@ -1,5 +1,5 @@
-import type { ButtonHTMLAttributes } from "react";
-type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
+import type { ComponentPropsWithRef } from "react";
+type Props = ComponentPropsWithRef<"button"> & {
   variant?: "primary" | "secondary";
 };
 export function BrutalistButton({
