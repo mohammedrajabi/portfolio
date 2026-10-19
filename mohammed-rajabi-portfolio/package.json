@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "test:content": "node scripts/check-content.mjs",
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint . --max-warnings 0",

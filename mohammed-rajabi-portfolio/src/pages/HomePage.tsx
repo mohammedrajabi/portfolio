@@ -1,5 +1,9 @@
 import { HeroSection } from "../sections/HeroSection";
 import { AboutSection } from "../sections/AboutSection";
+import { SkillsSection } from "../sections/SkillsSection";
+import { ProjectsSection } from "../sections/ProjectsSection";
+import { JourneySections } from "../sections/JourneySections";
+import { CertificationsSection } from "../sections/CertificationsSection";
 import { profile } from "../content/profile";
 import { usePageMetadata } from "../hooks/usePageMetadata";
 
@@ -12,7 +16,11 @@ export default function HomePage() {
     <>
       <HeroSection />
       <AboutSection />
-      {/* Integrate later sections here in homepageSections order, gated by real content. */}
+      <SkillsSection />
+      <ProjectsSection />
+      <JourneySections />
+      <CertificationsSection />
+      {/* Contact is reserved for Phase 4. */}
     </>
   );
 }

@@ -26,35 +26,36 @@ export const homepageSections: HomepageSection[] = [
   {
     id: "skills",
     label: "Skills",
-    implemented: false,
+    implemented: true,
     hasContent: hasContent(skills),
     accent: "coral",
   },
   {
     id: "projects",
     label: "Projects",
-    implemented: false,
+    implemented: true,
     hasContent: hasContent(projects),
+    showWhenEmpty: true,
     accent: "yellow",
   },
   {
     id: "experience",
     label: "Experience",
-    implemented: false,
+    implemented: true,
     hasContent: hasContent(experience),
     accent: "blue",
   },
   {
     id: "education",
     label: "Education",
-    implemented: false,
+    implemented: true,
     hasContent: hasContent(education),
     accent: "coral",
   },
   {
     id: "certifications",
     label: "Certifications",
-    implemented: false,
+    implemented: true,
     hasContent: hasContent(certifications),
     accent: "yellow",
   },
@@ -67,7 +68,8 @@ export const homepageSections: HomepageSection[] = [
   },
 ];
 export const visibleSections = homepageSections.filter(
-  (section) => section.implemented && section.hasContent,
+  (section) =>
+    section.implemented && (section.hasContent || section.showWhenEmpty),
 );
 export const developerCards: DeveloperCardContent[] = [
   {
