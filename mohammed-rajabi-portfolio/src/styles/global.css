@@ -271,17 +271,20 @@
   min-width: 0;
 }
 .hero-name {
-  font-size: clamp(1rem, 2vw, 1.15rem);
+  font-size: clamp(2.75rem, 5.2vw, 4.7rem);
   color: var(--ink);
-  margin-top: 18px;
-  font-weight: 500;
-}
-.hero-copy h1 {
-  font-size: clamp(3rem, 7.2vw, 5.35rem);
-  font-weight: 650;
+  margin: 22px 0 24px;
+  font-weight: 750;
   line-height: 1.08;
-  letter-spacing: -0.065em;
-  margin: 25px 0 26px;
+  letter-spacing: -0.055em;
+}
+.hero-headline {
+  font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+  font-weight: 550;
+  line-height: 1.4;
+  letter-spacing: -0.03em;
+  margin-bottom: 24px;
+  max-width: 560px;
 }
 .headline-line {
   display: block;
@@ -506,9 +509,6 @@
     grid-template-columns: 1.1fr 1fr;
     gap: 18px;
   }
-  .hero-copy h1 {
-    font-size: clamp(3rem, 6.2vw, 5.35rem);
-  }
   .about-section {
     grid-template-columns: 1.25fr 1fr;
     align-items: center;
@@ -544,9 +544,6 @@
   .header-inner {
     gap: 12px;
     min-height: 76px;
-  }
-  .hero-copy h1 {
-    font-size: clamp(2.65rem, 12vw, 3rem);
   }
 }
 @media (hover: hover) and (pointer: fine) {

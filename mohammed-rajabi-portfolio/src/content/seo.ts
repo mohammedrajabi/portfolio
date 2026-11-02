@@ -6,7 +6,7 @@ import { projectPath } from '../utils/projects';
 export const siteUrl = __SITE_URL__;
 export const homepageSeo = {
   title: 'Mohammed Rajabi | Software Developer & Cybersecurity Enthusiast',
-  description: 'Explore the portfolio of Mohammed Rajabi, a software developer and cybersecurity enthusiast building creative, practical, and secure digital experiences.',
+  description: profile.introduction,
 };
 export function getPageMetadata(pathname: string, origin: string | null = siteUrl, items = projects) {
   const project = items.find(item => projectPath(item.slug) === pathname);
@@ -29,7 +29,8 @@ export function getPageMetadata(pathname: string, origin: string | null = siteUr
 // No completed degrees, employment, awards, or fabricated project results.
 export const personSchema = {
   '@context': 'https://schema.org', '@type': 'Person', name: profile.name,
-  description: profile.title,
+  // Preserve the confirmed structured profile independently of the shorter hero title.
+  description: 'Software Developer | Cybersecurity Enthusiast',
   email: contacts.find(contact => contact.kind === 'email')?.value,
   sameAs: contacts.filter(contact => contact.kind !== 'email').map(contact => contact.href),
 };

@@ -105,7 +105,7 @@ export function TechnologyVisual() {
         </g>
       </svg>
       <div className="visual-caption">
-        <span /> Software. Systems. Security.
+        <span /> Build. Solve. Deliver.
       </div>
     </div>
   );

@@ -25,14 +25,14 @@ export function HeroSection() {
           <span />
           {homeContent.greeting}
         </p>
-        <p className="hero-name">{profile.name}</p>
-        <h1 id="hero-heading" aria-label={profile.headline}>
+        <h1 id="hero-heading" className="hero-name">{profile.name}</h1>
+        <p className="hero-headline">
           {profile.headline.match(/[^.]+\./g)?.map((line, index) => (
             <span key={line} className={`headline-line headline-${index}`}>
               {line.trim()}{" "}
             </span>
           ))}
-        </h1>
+        </p>
         <p className="hero-title">{profile.title}</p>
         <p className="hero-introduction">{profile.introduction}</p>
         <div className="hero-actions">

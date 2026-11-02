@@ -8,7 +8,7 @@ const build=JSON.parse(await fs.readFile('.qa/build.json','utf8'));
 const home=await fs.readFile('dist/index.html','utf8');
 const document=new JSDOM(home).window.document;
 assert.equal(document.title,'Mohammed Rajabi | Software Developer & Cybersecurity Enthusiast');
-assert.equal(document.querySelector('meta[name="description"]').content,'Explore the portfolio of Mohammed Rajabi, a software developer and cybersecurity enthusiast building creative, practical, and secure digital experiences.');
+assert.equal(document.querySelector('meta[name="description"]').content,'I build modern, production-ready web applications with practical features that solve real business problems and deliver great user experiences.');
 assert.equal(document.querySelectorAll('h1').length,1);
 assert.equal(document.querySelectorAll('main').length,1);
 assert.equal(document.querySelectorAll('.skill-list li').length,21);
