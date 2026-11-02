@@ -2,7 +2,7 @@ import { ArrowDown, ArrowUpRight, Download } from "lucide-react";
 import { Link } from "react-router";
 import { SectionContainer } from "../components/ui/SectionContainer";
 import { BrutalistButton } from "../components/ui/BrutalistButton";
-import { DeveloperCards } from "../components/hero/DeveloperCards";
+import { TechnologyVisual } from "../components/hero/TechnologyVisual";
 import { profile } from "../content/profile";
 import { homeContent, visibleSections } from "../content/home";
 
@@ -25,12 +25,7 @@ export function HeroSection() {
           <span />
           {homeContent.greeting}
         </p>
-        <p className="hero-name">
-          {profile.name}
-          <span className="name-wave" aria-hidden="true">
-            ↗
-          </span>
-        </p>
+        <p className="hero-name">{profile.name}</p>
         <h1 id="hero-heading" aria-label={profile.headline}>
           {profile.headline.match(/[^.]+\./g)?.map((line, index) => (
             <span key={line} className={`headline-line headline-${index}`}>
@@ -74,7 +69,7 @@ export function HeroSection() {
           A little more about me <ArrowDown size={16} aria-hidden="true" />
         </Link>
       </div>
-      <DeveloperCards />
+      <TechnologyVisual />
     </SectionContainer>
   );
 }

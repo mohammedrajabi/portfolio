@@ -15,6 +15,7 @@ export function externalUrl(value?: string): string | undefined {
   if (!value) return undefined;
   try {
     const url = new URL(value);
+    if (url.username || url.password) return undefined;
     return ["https:", "http:"].includes(url.protocol) ? url.href : undefined;
   } catch {
     return undefined;

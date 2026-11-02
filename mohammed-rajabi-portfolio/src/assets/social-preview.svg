@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<rect width="1200" height="630" fill="#0B141A"/>
+<path d="M64 150H1136 M64 560H1136" stroke="#28414E"/>
+<text x="64" y="107" fill="#40C9E8" font-family="Inter,Arial,sans-serif" font-size="38" font-weight="700">mr.</text>
+<text x="155" y="104" fill="#F0F9FC" font-family="Inter,Arial,sans-serif" font-size="27" font-weight="500">Mohammed Rajabi</text>
+<text x="64" y="276" fill="#F0F9FC" font-family="Inter,Arial,sans-serif" font-size="68" font-weight="600">I Build.</text>
+<text x="64" y="358" fill="#40C9E8" font-family="Inter,Arial,sans-serif" font-size="68" font-weight="600">I Secure.</text>
+<text x="64" y="440" fill="#F0F9FC" font-family="Inter,Arial,sans-serif" font-size="68" font-weight="600">I Innovate.</text>
+<text x="64" y="515" fill="#85AFC4" font-family="Inter,Arial,sans-serif" font-size="22">Software Developer | Cybersecurity Enthusiast</text>
+<g fill="none" stroke="#40C9E8"><circle cx="925" cy="330" r="155" opacity=".2"/><circle cx="925" cy="330" r="122" stroke-dasharray="2 9" opacity=".3"/><path d="m925 257 63 36v74l-63 36-63-36v-74z M925 257v73m-63-37 63 37 63-37m-63 37v73 M810 227 1040 262 1065 380 887 467 786 356Z M810 227 925 330 1065 380 M786 356 925 330 1040 262" opacity=".45"/></g>
+<g fill="#40C9E8"><circle cx="810" cy="227" r="4"/><circle cx="1040" cy="262" r="3"/><circle cx="1065" cy="380" r="4"/><circle cx="887" cy="467" r="3"/><circle cx="786" cy="356" r="3"/></g>
+</svg>

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { AnimatePresence, m, useReducedMotion } from "motion/react";
 import { ArrowUp } from "lucide-react";
 import { BrutalistButton } from "../ui/BrutalistButton";
 
@@ -42,7 +42,7 @@ export function BackToTop() {
   return (
     <AnimatePresence initial={false}>
       {visible && (
-        <motion.div
+        <m.div
           className="back-to-top-wrap"
           initial={{ opacity: reduced ? 1 : 0, y: reduced ? 0 : 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -56,7 +56,7 @@ export function BackToTop() {
           >
             <ArrowUp size={22} aria-hidden="true" />
           </BrutalistButton>
-        </motion.div>
+        </m.div>
       )}
     </AnimatePresence>
   );

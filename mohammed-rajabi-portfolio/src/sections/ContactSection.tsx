@@ -16,17 +16,19 @@ export function ContactSection() {
           className="portfolio-section contact-section"
           aria-labelledby="contact-heading"
         >
-          <SectionHeading
-            id="contact-heading"
-            number="05"
-            {...sectionContent.contact}
-          />
-          <div className="contact-grid">
-            {contacts.map((contact, index) => (
-              <CardEntrance key={contact.kind} index={index}>
-                <ContactCard contact={contact} />
-              </CardEntrance>
-            ))}
+          <div className="contact-panel">
+            <SectionHeading
+              id="contact-heading"
+              number="05"
+              {...sectionContent.contact}
+            />
+            <div className="contact-grid">
+              {contacts.map((contact, index) => (
+                <CardEntrance key={contact.kind} index={index}>
+                  <ContactCard contact={contact} />
+                </CardEntrance>
+              ))}
+            </div>
           </div>
         </SectionContainer>
       </div>

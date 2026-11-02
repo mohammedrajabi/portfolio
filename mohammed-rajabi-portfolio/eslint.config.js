@@ -20,4 +20,6 @@ export default tseslint.config(
     },
   },
   { files: ["**/*.{js,mjs}"], languageOptions: { globals: globals.node } },
+  { files: ['public/**/*.js'], languageOptions: { globals: globals.browser } },
+  { files: ['tests/**/*.tsx'], rules: { 'react-refresh/only-export-components': 'off' } },
 );

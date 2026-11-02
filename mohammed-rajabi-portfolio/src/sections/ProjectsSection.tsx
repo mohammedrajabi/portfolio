@@ -1,4 +1,4 @@
-import { FolderCode, Sparkles } from "lucide-react";
+import { FolderCode } from "lucide-react";
 import { SectionContainer } from "../components/ui/SectionContainer";
 import { SectionHeading } from "../components/ui/SectionHeading";
 import { BrutalistCard } from "../components/ui/BrutalistCard";
@@ -36,9 +36,7 @@ export function ProjectsSection() {
         ) : (
           <BrutalistCard className="projects-empty">
             <div className="empty-art" aria-hidden="true">
-              <span className="empty-art-tab" />
-              <FolderCode size={64} strokeWidth={1.5} />
-              <Sparkles size={25} className="empty-art-spark" />
+              <FolderCode size={30} strokeWidth={1.4} />
             </div>
             <div className="empty-copy">
               <p className="eyebrow">{sectionContent.projects.emptyLabel}</p>

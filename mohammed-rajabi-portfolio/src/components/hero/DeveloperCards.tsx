@@ -1,4 +1,4 @@
-import { motion, useReducedMotion } from "motion/react";
+import { m, useReducedMotion } from "motion/react";
 import { BookOpen, Code2, ShieldCheck, Sparkles } from "lucide-react";
 import { developerCards } from "../../content/home";
 import { BrutalistCard } from "../ui/BrutalistCard";
@@ -15,10 +15,10 @@ export function DeveloperCards() {
         {developerCards.map((card, index) => {
           const Icon = icons[card.id];
           return (
-            <motion.div
+            <m.div
               key={card.id}
               className={`developer-card-wrap card-wrap-${card.id}`}
-              initial={reduced ? false : { opacity: 0, y: 18 }}
+              initial={false}
               animate={{ opacity: 1, y: 0 }}
               transition={{
                 duration: reduced ? 0 : 0.4,
@@ -61,7 +61,7 @@ export function DeveloperCards() {
                   )}
                 </div>
               </BrutalistCard>
-            </motion.div>
+            </m.div>
           );
         })}
       </div>

@@ -1,17 +1,12 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import "@fontsource-variable/bricolage-grotesque";
-import "@fontsource-variable/dm-sans";
-import "./styles/tokens.css";
-import "./styles/global.css";
-import "./styles/sections.css";
-import "./styles/interactions.css";
-import App from "./App";
-import { ThemeProvider } from "./components/theme/ThemeProvider";
-createRoot(document.getElementById("root")!).render(
-  <StrictMode>
-    <ThemeProvider>
-      <App />
-    </ThemeProvider>
-  </StrictMode>,
-);
+import { StrictMode } from 'react';
+import { createRoot, hydrateRoot } from 'react-dom/client';
+import './styles/tokens.css';
+import './styles/global.css';
+import './styles/sections.css';
+import './styles/interactions.css';
+import App from './App';
+import { ThemeProvider } from './components/theme/ThemeProvider';
+const root = document.getElementById('root')!;
+const app = <StrictMode><ThemeProvider><App /></ThemeProvider></StrictMode>;
+if (root.hasChildNodes() && document.querySelector('meta[name="rendered-path"]')?.getAttribute('content') === window.location.pathname) hydrateRoot(root, app);
+else createRoot(root).render(app);

@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { motion, useReducedMotion } from "motion/react";
+import { m, useReducedMotion } from "motion/react";
 export function CardEntrance({
   children,
   index = 0,
@@ -11,9 +11,9 @@ export function CardEntrance({
 }) {
   const reduced = useReducedMotion();
   return (
-    <motion.div
+    <m.div
       className={`card-entrance ${className}`}
-      initial={reduced ? false : { opacity: 0, y: 12 }}
+      initial={false}
       animate={{ opacity: 1, y: 0 }}
       transition={{
         duration: reduced ? 0 : 0.3,
@@ -21,6 +21,6 @@ export function CardEntrance({
       }}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "../theme/ThemeToggle";
 import { BrutalistButton } from "../ui/BrutalistButton";
 import { profile } from "../../content/profile";
@@ -71,7 +71,6 @@ export function SiteHeader() {
       onClick={() => setOpenAt(null)}
     >
       {section.label}
-      <ArrowUpRight size={15} aria-hidden="true" />
     </Link>
   ));
 
@@ -92,7 +91,7 @@ export function SiteHeader() {
         <Link
           to="/#home"
           className="wordmark"
-          aria-label={`${profile.name} home`}
+          aria-label={`mr. ${profile.name} home`}
           onClick={() => setOpenAt(null)}
         >
           <span className="monogram" aria-hidden="true">

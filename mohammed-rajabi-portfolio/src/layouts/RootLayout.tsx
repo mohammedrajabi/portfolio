@@ -1,5 +1,5 @@
 import { Outlet } from "react-router";
-import { Asterisk } from "lucide-react";
+import { Code2 } from "lucide-react";
 import { SiteHeader } from "../components/navigation/SiteHeader";
 import { SectionNavigation } from "../components/navigation/SectionNavigation";
 import { BackToTop } from "../components/navigation/BackToTop";
@@ -24,7 +24,7 @@ export default function RootLayout() {
           {homeContent.footerNote}
         </span>
         <span>
-          <Asterisk size={18} aria-hidden="true" /> Made with intention.
+          <Code2 size={18} aria-hidden="true" /> Made with intention.
         </span>
       </footer>
       <BackToTop />

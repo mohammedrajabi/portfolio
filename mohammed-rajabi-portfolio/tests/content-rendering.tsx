@@ -15,6 +15,8 @@ import { CopyFeedback } from "../src/components/contact/CopyFeedback";
 import { HeroSection } from "../src/sections/HeroSection";
 import { BackToTop } from "../src/components/navigation/BackToTop";
 import { copyText } from "../src/utils/clipboard";
+import { getPageMetadata, homepageSeo, personSchema } from '../src/content/seo';
+import { normalizeSiteUrl } from '../src/utils/site-url';
 import { visibleSections } from "../src/content/home";
 import { SkillCategoryCard } from "../src/components/skills/SkillCategoryCard";
 import { EducationCard } from "../src/components/journey/EducationCard";
@@ -46,6 +48,22 @@ const wrap = (node: ReactNode) =>
   renderToStaticMarkup(<MemoryRouter>{node}</MemoryRouter>);
 
 export async function validateContentRendering() {
+  assert.equal(getPageMetadata('/').title,homepageSeo.title);
+  assert.equal(getPageMetadata('/',null).canonical,null);
+  assert.equal(getPageMetadata('/projects/not-published').robots,'noindex, follow');
+  assert.equal(getPageMetadata('/projects/not-published').image,null);
+  const metadata=getPageMetadata('/projects/render-test','https://example.invalid',[fixture]);
+  assert.equal(metadata.canonical,'https://example.invalid/projects/render-test');
+  assert.equal(metadata.description,fixture.summary);
+  assert.equal(metadata.image,'https://example.invalid/social-preview.png');
+  assert.equal(normalizeSiteUrl(undefined),null);
+  assert.throws(()=>normalizeSiteUrl('https://example.invalid/path'));
+  assert.throws(()=>normalizeSiteUrl('http://example.invalid'));
+  assert.throws(()=>normalizeSiteUrl('https://name:secret@example.invalid'));
+  assert.equal(personSchema.name,'Mohammed Rajabi');
+  assert.equal(personSchema.sameAs.length,2);
+  assert.equal('alumniOf' in personSchema,false);
+  assert.equal(externalUrl('https://name:secret@example.invalid'),undefined);
   const email = contacts.find((contact) => contact.kind === "email")!;
   assert.deepEqual(
     contacts.map((contact) => contact.href),

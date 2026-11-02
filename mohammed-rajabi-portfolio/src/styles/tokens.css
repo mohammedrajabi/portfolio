@@ -1,46 +1,63 @@
 @import "tailwindcss";
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+@font-face {
+  font-family: "Inter Variable";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url("@fontsource-variable/inter/files/inter-latin-wght-normal.woff2")
+    format("woff2");
+}
 @theme {
-  --color-cream: #f6f4ed;
-  --color-blue: #a3c4f3;
-  --color-yellow: #ffc857;
-  --color-coral: #ff857a;
-  --color-charcoal: #202020;
-  --font-heading: "Bricolage Grotesque Variable", sans-serif;
-  --font-body: "DM Sans Variable", sans-serif;
+  --font-heading: "Inter Variable", "Inter", sans-serif;
+  --font-body: "Inter Variable", "Inter", sans-serif;
   --color-page: var(--page);
   --color-surface: var(--surface);
   --color-ink: var(--ink);
   --color-muted: var(--muted);
   --color-line: var(--line);
-  --color-accent: var(--color-yellow);
+  --color-accent: var(--accent);
   --spacing: 0.25rem;
   --breakpoint-sm: 40rem;
   --breakpoint-md: 48rem;
   --breakpoint-lg: 64rem;
   --breakpoint-xl: 80rem;
-  --shadow-brutal: 5px 5px 0 var(--shadow-ink);
-  --shadow-brutal-lg: 8px 8px 0 var(--shadow-ink);
-  --radius-brutal: 0;
-  --ease-playful: cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 :root {
-  --page: #f6f4ed;
-  --surface: #fffefa;
-  --ink: #202020;
-  --muted: #5b5a54;
-  --line: #202020;
-  --shadow-ink: #202020;
-  --border-width: 2px;
-  --duration-fast: 140ms;
+  color-scheme: light;
+  --page: #f6f9fb;
+  --surface: #ffffff;
+  --surface-soft: #edf3f6;
+  --ink: #122832;
+  --muted: #4d6876;
+  --line: #d6e2e8;
+  --accent: #08748e;
+  --accent-solid: #40c9e8;
+  --accent-text: #08232d;
+  --secondary: #476f83;
+  --accent-wash: #e7f5f9;
+  --header-bg: #f6f9fbf5;
+  --soft-shadow: 0 12px 40px #15313e08;
+  --font-heading: "Inter Variable", "Inter", sans-serif;
+  --font-body: var(--font-heading);
+  --duration-fast: 160ms;
   --duration-normal: 240ms;
-  --section-gap: clamp(2.5rem, 5vw, 4rem);
+  --ease-modern: cubic-bezier(0.2, 0.65, 0.3, 1);
+  --header-height: 84px;
 }
 :root[data-theme="dark"] {
-  --page: #202020;
-  --surface: #2c2c2c;
-  --ink: #f6f4ed;
-  --muted: #c6c4bc;
-  --line: #f6f4ed;
-  --shadow-ink: #090909;
+  color-scheme: dark;
+  --page: #0b141a;
+  --surface: #152630;
+  --surface-soft: #101e27;
+  --ink: #f0f9fc;
+  --muted: #9fb6c3;
+  --line: #28414e;
+  --accent: #40c9e8;
+  --accent-solid: #40c9e8;
+  --accent-text: #08232d;
+  --secondary: #85afc4;
+  --accent-wash: #142e3a;
+  --header-bg: #0b141af5;
+  --soft-shadow: 0 12px 40px #00000014;
 }

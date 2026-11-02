@@ -4,15 +4,11 @@ import { projects } from "../content/projects";
 import { SectionContainer } from "../components/ui/SectionContainer";
 import { ProjectDetails } from "../components/projects/ProjectDetails";
 import { usePageMetadata } from "../hooks/usePageMetadata";
-import { profile } from "../content/profile";
 
 export default function ProjectPage() {
   const { slug } = useParams();
   const project = projects.find((item) => item.slug === slug);
-  usePageMetadata(
-    `${project?.title ?? "Project not found"} — ${profile.name}`,
-    project?.summary ?? "No project has been published at this address.",
-  );
+  usePageMetadata();
   if (project) return <ProjectDetails project={project} />;
   return (
     <SectionContainer className="route-placeholder">

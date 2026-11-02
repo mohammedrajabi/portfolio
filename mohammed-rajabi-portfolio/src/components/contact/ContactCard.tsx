@@ -20,10 +20,13 @@ export function ContactCard({ contact }: { contact: Contact }) {
         <p className="contact-description">{contact.description}</p>
         {email ? (
           <>
-            <a className="contact-email-address" href={contact.href}>
-              <span>{contact.value}</span>
-              <Mail size={17} aria-hidden="true" />
+            <a
+              className="brutalist-button button-primary contact-email-address"
+              href={contact.href}
+            >
+              Send an email <ArrowUpRight size={17} aria-hidden="true" />
             </a>
+            <p className="contact-address">{contact.value}</p>
             <CopyEmailButton email={contact.value} />
           </>
         ) : (
